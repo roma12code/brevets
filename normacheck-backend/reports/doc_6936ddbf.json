@@ -1,0 +1,62 @@
+{
+  "documentId": "doc_6936ddbf",
+  "documentName": "BREVET.pdf",
+  "overallScore": 85,
+  "status": "partial",
+  "totalIssues": 3,
+  "criticalIssues": 0,
+  "summary": "Le document présenté montre une bonne cohérence dans les sections, une grande précision technique et une qualité de rédaction satisfaisante, mais avec quelques points à améliorer.",
+  "normesCovered": [
+    {
+      "normeCode": "CONSISTANCE",
+      "normeName": "Consistance Inter-Section",
+      "passed": true,
+      "score": 90,
+      "details": "Le document présente une bonne consistance dans les références et la terminologie utilisées à travers les différentes sections. Les numéros de section et les titres sont cohérents.",
+      "issues": [
+        {
+          "id": "issue_001",
+          "severity": "minor",
+          "normeRef": "CONSISTANCE",
+          "description": "La numérotation des points dans certaines sections pourrait être améliorée pour plus de clarté.",
+          "page": 1,
+          "suggestion": "Utiliser une numérotation continue ou des lettres pour les sous-points pour améliorer la lisibilité."
+        }
+      ]
+    },
+    {
+      "normeCode": "PRECISION",
+      "normeName": "Précision Technique",
+      "passed": true,
+      "score": 85,
+      "details": "Les données chiffrées et les descriptions techniques sont généralement précises, mais il manque des références à des normes ISO ou à des études plus approfondies pour étayer certaines affirmations.",
+      "issues": [
+        {
+          "id": "issue_002",
+          "severity": "minor",
+          "normeRef": "PRECISION",
+          "description": "Absence de références aux normes ISO pour les tests et les procédures.",
+          "page": 3,
+          "suggestion": "Ajouter des références aux normes ISO applicables pour renforcer la crédibilité des tests et des procédures décrits."
+        }
+      ]
+    },
+    {
+      "normeCode": "REDACTION",
+      "normeName": "Qualité Rédactionnelle",
+      "passed": true,
+      "score": 80,
+      "details": "Le texte est généralement clair et bien structuré, mais certaines phrases sont très longues et complexes, ce qui peutnuire à la compréhension.",
+      "issues": [
+        {
+          "id": "issue_003",
+          "severity": "minor",
+          "normeRef": "REDACTION",
+          "description": "Certaines phrases sont trop longues et contiennent plusieurs idées qui pourraient être séparées pour plus de clarté.",
+          "page": 2,
+          "suggestion": "Diviser les longues phrases en plusieurs phrases plus courtes pour améliorer la lisibilité et la compréhension du texte."
+        }
+      ]
+    }
+  ]
+}

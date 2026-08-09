@@ -1,0 +1,44 @@
+{
+  "documentId": "doc_a27868a5",
+  "documentName": "BREVET.pdf",
+  "overallScore": 85,
+  "status": "partial",
+  "totalIssues": 1,
+  "criticalIssues": 0,
+  "summary": "Le document présente une cohérence générale entre les sections, avec une terminologie technique appropriée et des références précises. Cependant, certaines améliorations sont nécessaires en termes de rédaction et de précision technique.",
+  "normesCovered": [
+    {
+      "normeCode": "CONSISTANCE",
+      "normeName": "Consistance Inter-Section",
+      "passed": true,
+      "score": 90,
+      "details": "Le document montre une bonne cohérence entre les sections, avec une numérotation logique et des références internes appropriées. La terminologie technique est également cohérente.",
+      "issues": [
+        {
+          "id": "issue_001",
+          "severity": "minor",
+          "normeRef": "CONSISTANCE",
+          "description": "La section 6 répète certaines informations déjà mentionnées dans la section 3.",
+          "page": 1,
+          "suggestion": "Réorganiser les sections pour éviter les répétitions et améliorer la fluidité du document."
+        }
+      ]
+    },
+    {
+      "normeCode": "PRECISION",
+      "normeName": "Précision Technique",
+      "passed": true,
+      "score": 85,
+      "details": "Les données chiffrées et les références techniques sont précises, mais certaines dates et références ISO manquent.",
+      "issues": []
+    },
+    {
+      "normeCode": "REDACTION",
+      "normeName": "Qualité Rédactionnelle",
+      "passed": true,
+      "score": 80,
+      "details": "Le français est généralement correct, mais certaines phrases sont longues et complexes, ce qui peut nuire à la clarté du document.",
+      "issues": []
+    }
+  ]
+}

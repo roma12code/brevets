@@ -1,0 +1,53 @@
+{
+  "documentId": "doc_348f6e90",
+  "documentName": "brevet brain 2.pdf",
+  "overallScore": 86,
+  "status": "partial",
+  "totalIssues": 2,
+  "criticalIssues": 0,
+  "summary": "Le document est globalement cohérent et précis, mais présente quelques erreurs mineures de rédaction et de consistency",
+  "normesCovered": [
+    {
+      "normeCode": "CONSISTANCE",
+      "normeName": "Consistance Inter-Section",
+      "passed": true,
+      "score": 92,
+      "details": "La terminologie et les références utilisées dans le document sont cohérentes et suivent une logique claire. Cependant, il y a quelques incohérences mineures dans la numérotation des pages et des figures.",
+      "issues": [
+        {
+          "id": "issue_001",
+          "severity": "minor",
+          "normeRef": "CONSISTANCE",
+          "description": "La page 10 contient une figure non numérotée, ce qui peut causer de la confusion",
+          "page": 10,
+          "suggestion": "Ajouter un numéro de figure à la figure de la page 10"
+        }
+      ]
+    },
+    {
+      "normeCode": "PRECISION",
+      "normeName": "Précision Technique",
+      "passed": true,
+      "score": 88,
+      "details": "Les références aux normes ISO et les dates sont exactes et cohérentes. Les données chiffrées sont également précises et bien présentées.",
+      "issues": []
+    },
+    {
+      "normeCode": "REDACTION",
+      "normeName": "Qualité Rédactionnelle",
+      "passed": true,
+      "score": 82,
+      "details": "La rédaction est claire et concise, mais il y a quelques phrases longues et difficiles à suivre. Il y a également quelques erreurs mineures de grammaire et de syntaxe.",
+      "issues": [
+        {
+          "id": "issue_002",
+          "severity": "minor",
+          "normeRef": "REDACTION",
+          "description": "La phrase de la page 5 est trop longue et difficile à suivre",
+          "page": 5,
+          "suggestion": "Diviser la phrase en deux ou trois phrases plus courtes"
+        }
+      ]
+    }
+  ]
+}

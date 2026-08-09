@@ -1,0 +1,70 @@
+{
+  "documentId": "doc_a08dca55",
+  "documentName": "BREVET.pdf",
+  "overallScore": 82,
+  "status": "partial",
+  "totalIssues": 4,
+  "criticalIssues": 0,
+  "summary": "Le document présente une structure cohérente et une rédaction claire, mais nécessite des améliorations en termes de précision technique et de qualité rédactionnelle pour certaines sections.",
+  "normesCovered": [
+    {
+      "normeCode": "CONSISTANCE",
+      "normeName": "Consistance Inter-Section",
+      "passed": true,
+      "score": 88,
+      "details": "La terminologie utilisée est cohérente tout au long du document, et les références sont bien établies. La numérotation des sections suit un ordre logique, mais il y a une petite erreur de pagination en fin de document.",
+      "issues": [
+        {
+          "id": "issue_001",
+          "severity": "minor",
+          "normeRef": "CONSISTANCE",
+          "description": "Petite erreur de pagination en fin de document (section 7)",
+          "page": 7,
+          "suggestion": "Vérifier et corriger la pagination en fin de document"
+        }
+      ]
+    },
+    {
+      "normeCode": "PRECISION",
+      "normeName": "Précision Technique",
+      "passed": true,
+      "score": 80,
+      "details": "Les données chiffrées et les références techniques sont généralement précises, mais il manque des détails sur les procédures de tests et les références ISO pour certaines spécifications.",
+      "issues": [
+        {
+          "id": "issue_002",
+          "severity": "minor",
+          "normeRef": "PRECISION",
+          "description": "Manque de détails sur les procédures de tests pour les essais de phase II",
+          "page": 6,
+          "suggestion": "Ajouter plus de détails sur les procédures de tests utilisées"
+        },
+        {
+          "id": "issue_003",
+          "severity": "minor",
+          "normeRef": "PRECISION",
+          "description": "Références ISO manquantes pour certaines spécifications techniques",
+          "page": 3,
+          "suggestion": "Ajouter les références ISO pertinents pour les spécifications techniques"
+        }
+      ]
+    },
+    {
+      "normeCode": "REDACTION",
+      "normeName": "Qualité Rédactionnelle",
+      "passed": true,
+      "score": 85,
+      "details": "La rédaction est généralement claire et concise, mais certaines phrases sont un peu longues et nécessitent une reformulation pour améliorer la lisibilité.",
+      "issues": [
+        {
+          "id": "issue_004",
+          "severity": "minor",
+          "normeRef": "REDACTION",
+          "description": "Certaines phrases sont trop longues et nécessitent une reformulation",
+          "page": 2,
+          "suggestion": "Reformuler les phrases trop longues pour améliorer la lisibilité"
+        }
+      ]
+    }
+  ]
+}

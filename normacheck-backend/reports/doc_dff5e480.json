@@ -1,0 +1,53 @@
+{
+  "documentId": "doc_dff5e480",
+  "documentName": "BREVET.pdf",
+  "overallScore": 85,
+  "status": "partial",
+  "totalIssues": 2,
+  "criticalIssues": 0,
+  "summary": "Le document présente une cohérence globale entre les sections, une précision technique satisfaisante et une qualité rédactionnelle bonne, mais avec quelques améliorations possibles.",
+  "normesCovered": [
+    {
+      "normeCode": "CONSISTANCE",
+      "normeName": "Consistance Inter-Section",
+      "passed": true,
+      "score": 90,
+      "details": "Le document montre une terminologie cohérente et des références bien organisées entre les sections, avec une numérotation logique.",
+      "issues": [
+        {
+          "id": "issue_001",
+          "severity": "minor",
+          "normeRef": "CONSISTANCE",
+          "description": "La section 6 pourrait contenir des sous-titres pour améliorer la clarté.",
+          "page": 1,
+          "suggestion": "Ajouter des sous-titres dans la section 6 pour une meilleure organisation."
+        }
+      ]
+    },
+    {
+      "normeCode": "PRECISION",
+      "normeName": "Précision Technique",
+      "passed": true,
+      "score": 85,
+      "details": "Les données chiffrées et les références techniques sont généralement exactes, mais il manque des références ISO ou des normes spécifiques pour certaines déclarations.",
+      "issues": [
+        {
+          "id": "issue_002",
+          "severity": "major",
+          "normeRef": "PRECISION",
+          "description": "Il serait nécessaire de fournir des références aux normes ISO pour les spécifications techniques.",
+          "page": 1,
+          "suggestion": "Inclure des références aux normes ISO applicables pour les spécifications du dispositif."
+        }
+      ]
+    },
+    {
+      "normeCode": "REDACTION",
+      "normeName": "Qualité Rédactionnelle",
+      "passed": true,
+      "score": 80,
+      "details": "La rédaction est claire et concise, mais certaines phrases sont un peu longues et pourraient être scindées pour améliorer la lisibilité.",
+      "issues": []
+    }
+  ]
+}

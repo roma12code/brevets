@@ -1,0 +1,62 @@
+{
+  "documentId": "doc_c7d77416",
+  "documentName": "BREVET.pdf",
+  "overallScore": 85,
+  "status": "partial",
+  "totalIssues": 3,
+  "criticalIssues": 0,
+  "summary": "Le document présente une analyse complète et détaillée du dispositif CardioPatch-X1, mais montre quelques faiblesses dans la rédaction et la précision technique.",
+  "normesCovered": [
+    {
+      "normeCode": "CONSISTANCE",
+      "normeName": "Consistance Inter-Section",
+      "passed": true,
+      "score": 92,
+      "details": "Le document présente une terminologie cohérente et des références bien définies, avec une numérotation logique et facile à suivre.",
+      "issues": [
+        {
+          "id": "issue_001",
+          "severity": "minor",
+          "normeRef": "CONSISTANCE",
+          "description": "La section 7, 'PORTÉE DES REVENDICATIONS', présente une formulation légèrement différente pour les termes 'micro-aiguilles creuses' et 'matrice de micro-aiguilles', ce qui pourrait être amélioré pour plus de cohérence.",
+          "page": 1,
+          "suggestion": "Utiliser une terminologie uniforme pour désigner les composants du dispositif tout au long du document."
+        }
+      ]
+    },
+    {
+      "normeCode": "PRECISION",
+      "normeName": "Précision Technique",
+      "passed": true,
+      "score": 88,
+      "details": "Les données chiffrées et les références techniques sont généralementexactes, mais certaines valeurs pourraient être vérifiées pour plus de précision (par exemple, les dimensions du dispositif et les performances des tests cliniques).",
+      "issues": [
+        {
+          "id": "issue_002",
+          "severity": "minor",
+          "normeRef": "PRECISION",
+          "description": "Le document mentionne une réduction de 85% des hospitalisations d'urgence sans fournir de données de référence pour cette affirmation.",
+          "page": 1,
+          "suggestion": "Fournir des données de référence claires pour étayer les affirmations sur les performances et les avantages du dispositif."
+        }
+      ]
+    },
+    {
+      "normeCode": "REDACTION",
+      "normeName": "Qualité Rédactionnelle",
+      "passed": true,
+      "score": 82,
+      "details": "Le document est globalement bien rédigé, avec des phrases claires et concises. Cependant, certaines phrases sont un peu longues et pourraient être divisées pour améliorer la lisibilité.",
+      "issues": [
+        {
+          "id": "issue_003",
+          "severity": "minor",
+          "normeRef": "REDACTION",
+          "description": "La phrase dans la section 3, 'ABRÉGÉ DE L'INVENTION', est un peu longue et contient plusieurs concepts qui pourraient être présentés séparément pour plus de clarté.",
+          "page": 1,
+          "suggestion": "Diviser les longues phrases en plusieurs phrases plus courtes pour améliorer la compréhension et la fluidité du texte."
+        }
+      ]
+    }
+  ]
+}

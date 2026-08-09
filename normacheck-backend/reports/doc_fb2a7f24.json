@@ -1,0 +1,62 @@
+{
+  "documentId": "doc_fb2a7f24",
+  "documentName": "brevet brain 1.pdf",
+  "overallScore": 82,
+  "status": "partial",
+  "totalIssues": 3,
+  "criticalIssues": 0,
+  "summary": "Le document est généralement cohérent et précis, mais nécessite certains ajustements pour améliorer la clarté et la qualité rédactionnelle",
+  "normesCovered": [
+    {
+      "normeCode": "CONSISTANCE",
+      "normeName": "Consistance Inter-Section",
+      "passed": true,
+      "score": 88,
+      "details": "Le document est bien structuré et les sections sont cohérentes, avec des références claires et précises aux pages et aux sections pertinentes",
+      "issues": [
+        {
+          "id": "issue_001",
+          "severity": "minor",
+          "normeRef": "CONSISTANCE",
+          "description": "Il y a quelques erreurs de numérotation dans les références aux pages",
+          "page": 2,
+          "suggestion": "Vérifier les références aux pages pour garantir leur exactitude"
+        }
+      ]
+    },
+    {
+      "normeCode": "PRECISION",
+      "normeName": "Précision Technique",
+      "passed": true,
+      "score": 85,
+      "details": "Les références aux normes et aux standards sont généralement précises, mais il y a quelques erreurs mineures",
+      "issues": [
+        {
+          "id": "issue_002",
+          "severity": "minor",
+          "normeRef": "PRECISION",
+          "description": "Il y a une erreur dans la référence à la norme ISO",
+          "page": 5,
+          "suggestion": "Vérifier les références aux normes pour garantir leur exactitude"
+        }
+      ]
+    },
+    {
+      "normeCode": "REDACTION",
+      "normeName": "Qualité Rédactionnelle",
+      "passed": true,
+      "score": 78,
+      "details": "Le texte est généralement clair, mais il y a quelques phrases longues et complexes qui nécessitent une révision",
+      "issues": [
+        {
+          "id": "issue_003",
+          "severity": "minor",
+          "normeRef": "REDACTION",
+          "description": "Il y a quelques phrases qui sont trop longues et qui nécessitent une révision pour améliorer la clarté",
+          "page": 8,
+          "suggestion": "Réviser les phrases pour les rendre plus courtes et plus claires"
+        }
+      ]
+    }
+  ]
+}

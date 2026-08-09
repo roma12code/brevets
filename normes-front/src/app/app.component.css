@@ -1,0 +1,40 @@
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-main);
+}
+
+.main-layout {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  height: calc(100vh - 70px);
+  transition: margin 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  background: var(--bg-main);
+}
+
+.main-content.sidebar-open {
+  margin-left: 320px;
+}
+
+.main-content.preview-open {
+  margin-right: 380px;
+}
+
+@media (max-width: 1200px) {
+  .main-content.sidebar-open {
+    margin-left: 0;
+  }
+
+  .main-content.preview-open {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,101 @@
+<aside class="sidebar" [class.open]="isOpen">
+  <div class="sidebar-header">
+    <div class="sidebar-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </svg>
+      <span>Historique des Analyses</span>
+    </div>
+    <button class="btn-close" (click)="close()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="sidebar-search">
+    <div class="search-input-wrapper">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input
+        type="text"
+        placeholder="Rechercher un document..."
+        [(ngModel)]="searchTerm"
+        (input)="onSearch()"
+        class="search-input"
+      />
+    </div>
+  </div>
+
+  <button class="btn-new-conversation" (click)="newConversation()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <line x1="12" y1="5" x2="12" y2="19"/>
+      <line x1="5" y1="12" x2="19" y2="12"/>
+    </svg>
+    Nouvelle Analyse
+  </button>
+
+  <div class="sidebar-section-label">Récent</div>
+
+  <div class="conversation-list">
+    <div
+      *ngFor="let conv of filteredHistory; trackBy: trackByFn"
+      class="conversation-item"
+      (click)="selectConversation(conv.id)"
+    >
+      <div class="conv-status-indicator" [ngClass]="getStatusClass(conv.status)"></div>
+      <div class="conv-content">
+        <div class="conv-header">
+          <span class="conv-title">{{ conv.title }}</span>
+          <span class="conv-status-icon">{{ getStatusIcon(conv.status) }}</span>
+        </div>
+        <p class="conv-message">{{ conv.lastMessage }}</p>
+        <div class="conv-meta">
+          <span class="conv-date">{{ formatDate(conv.date) }}</span>
+          <span class="conv-docs">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            {{ conv.documentsCount }} doc(s)
+          </span>
+        </div>
+      </div>
+      <button class="btn-delete" (click)="deleteConversation($event, conv.id)" title="Supprimer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="3 6 5 6 21 6"/>
+          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+        </svg>
+      </button>
+    </div>
+
+    <div *ngIf="filteredHistory.length === 0" class="empty-history">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+      </svg>
+      <p>Aucun document trouvé</p>
+    </div>
+  </div>
+
+  <div class="sidebar-footer">
+    <div class="stats-mini">
+      <div class="stat-item">
+        <span class="stat-number">{{ history.length }}</span>
+        <span class="stat-label">Analyses</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number compliant">{{ getCompliantCount() }}</span>
+        <span class="stat-label">Conformes</span>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- Overlay for mobile -->
+<div class="sidebar-overlay" [class.active]="isOpen" (click)="close()"></div>

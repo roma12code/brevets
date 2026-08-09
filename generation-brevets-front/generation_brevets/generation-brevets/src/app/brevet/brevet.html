@@ -1,0 +1,323 @@
+<div class="page">
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="top-bar-title">
+      <strong>GÉNÉRATION DES DOCUMENTS EN TEMPS RÉEL</strong>
+    </div>
+    <div class="top-bar-buttons">
+      <button class="btn-template" (click)="ouvrirTemplateModal()">📄 Template</button>
+      <button class="btn-mesbrevets" (click)="ouvrirMesBrevets()">📁 Mes brevets</button>
+    </div>
+  </div>
+
+  <!-- Modal Template -->
+  <div class="modal-overlay" *ngIf="showTemplateModal" (click)="fermerModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+      <h3 class="modal-title">Choisir le type de brevet</h3>
+
+      <div class="modal-options">
+
+        <label class="modal-option" [class.selected]="templateSelectionne === 'invention'">
+          <input type="radio" name="template" value="invention"
+                 [(ngModel)]="templateSelectionne">
+          <div class="option-icon">📋</div>
+          <div class="option-text">
+            <strong>Brevet d'invention</strong>
+            <span>Protection d'une innovation technique nouvelle</span>
+          </div>
+        </label>
+
+        <label class="modal-option" [class.selected]="templateSelectionne === 'certificat'">
+          <input type="radio" name="template" value="certificat"
+                 [(ngModel)]="templateSelectionne">
+          <div class="option-icon">📜</div>
+          <div class="option-text">
+            <strong>Certificat d'utilité</strong>
+            <span>Protection simplifiée d'une amélioration technique</span>
+          </div>
+        </label>
+
+        <label class="modal-option" [class.selected]="templateSelectionne === 'modele'">
+          <input type="radio" name="template" value="modele"
+                 [(ngModel)]="templateSelectionne">
+          <div class="option-icon">🏭</div>
+          <div class="option-text">
+            <strong>Modèle industriel</strong>
+            <span>Protection de la forme et du design d'un produit</span>
+          </div>
+        </label>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-annuler" (click)="fermerModal()">Annuler</button>
+        <button class="btn-confirmer" (click)="confirmerTemplate()">✅ Confirmer le choix</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════ -->
+  <!-- 🔬 MODAL : RÉSULTAT ANALYSE D'ANTÉRIORITÉ (UNIQUE!)  -->
+  <!-- ════════════════════════════════════════════════════ -->
+  <div class="modal-overlay" *ngIf="showResultatModal" (click)="fermerResultatModal()">
+    <div class="modal-box modal-large modal-resultat" (click)="$event.stopPropagation()">
+      
+      <!-- En-tête du modal -->
+      <div class="resultat-header">
+        <h3 class="modal-title">🔬 Analyse d'Antériorité</h3>
+        <button class="btn-fermer-modal" (click)="fermerResultatModal()">✕</button>
+      </div>
+
+
+      <!-- ⏳ LOADER pendant l'analyse -->
+      <div *ngIf="isLoading" class="loading-container">
+        <div class="spinner"></div>
+        <h4>🔬 Analyse en cours...</h4>
+        <p>Nous analysons 23 000+ documents avec l'IA</p>
+        <p class="loading-hint">Cela prend environ 10-15 secondes</p>
+      </div>
+
+      <!-- ❌ Affichage des erreurs -->
+      <div *ngIf="!isLoading && erreurAnalyse" class="erreur-container">
+        <h4>❌ Erreur</h4>
+        <p>{{ erreurAnalyse }}</p>
+        <button class="btn-confirmer" (click)="onVerifier()">🔄 Réessayer</button>
+      </div>
+
+      <!-- ✅ AFFICHAGE DU RÉSULTAT -->
+      <div *ngIf="!isLoading && resultatAnteriorite && !erreurAnalyse" class="resultat-contenu">
+        
+        <!-- VERDICT -->
+        <div class="verdict-card" [ngClass]="verdictClass">
+          <h2>{{ verdictLabel }}</h2>
+          <div class="risque-badge" [ngClass]="risqueClass">
+            ⚠️ Niveau de risque : {{ resultatAnteriorite.risque }}
+          </div>
+        </div>
+
+        <!-- ANALYSE -->
+        <div class="section-resultat" *ngIf="resultatAnteriorite.analyse">
+          <h3>🔍 1. Analyse d'antériorité</h3>
+          <div class="section-content">{{ resultatAnteriorite.analyse }}</div>
+        </div>
+
+        <!-- DIFFÉRENCIATION -->
+        <div class="section-resultat" *ngIf="resultatAnteriorite.differentiation">
+          <h3>💡 2. Différenciation possible</h3>
+          <div class="section-content">{{ resultatAnteriorite.differentiation }}</div>
+        </div>
+
+        <!-- BREVETABILITÉ -->
+        <div class="section-resultat" *ngIf="resultatAnteriorite.brevetabilite">
+          <h3>⚖️ 3. Analyse de brevetabilité</h3>
+          <div class="section-content">{{ resultatAnteriorite.brevetabilite }}</div>
+        </div>
+
+        <!-- RECOMMANDATIONS -->
+        <div class="section-resultat" *ngIf="resultatAnteriorite.recommandations">
+          <h3>🎯 4. Recommandations stratégiques</h3>
+          <div class="section-content">{{ resultatAnteriorite.recommandations }}</div>
+        </div>
+
+        <!-- CONCLUSION -->
+        <div class="section-resultat" *ngIf="resultatAnteriorite.conclusion">
+          <h3>📋 5. Conclusion</h3>
+          <div class="section-content">{{ resultatAnteriorite.conclusion }}</div>
+        </div>
+
+        <!-- DOCUMENTS SIMILAIRES -->
+        <div class="section-resultat" *ngIf="resultatAnteriorite.documentsProches?.length">
+          <h3>📚 Documents similaires trouvés ({{ resultatAnteriorite.documentsProches.length }})</h3>
+          <div class="documents-liste">
+            <div *ngFor="let doc of resultatAnteriorite.documentsProches" class="document-card">
+              <div class="document-header">
+                <span class="similarite-badge" [ngClass]="getSimilariteClass(doc.similarite)">
+                  {{ doc.similarite }}%
+                </span>
+                <span class="document-rang">#{{ doc.rang }}</span>
+              </div>
+              <h4>{{ doc.titre }}</h4>
+              <div class="document-meta">
+                <span>🏢 {{ doc.proprietaire }}</span>
+                <span>📅 {{ doc.annee }}</span>
+                <span>📑 {{ doc.type }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer du modal -->
+      <div class="modal-footer" *ngIf="!isLoading">
+        <button class="btn-annuler" (click)="fermerResultatModal()">Fermer</button>
+        <button class="btn-confirmer" *ngIf="resultatAnteriorite" 
+                (click)="fermerResultatModal()">
+          ✅ Continuer la génération
+        </button>
+      </div>
+
+    </div>
+  </div>
+  
+  <!-- Modal Mes Brevets -->
+  <div class="modal-overlay" *ngIf="showMesBrevetsModal" (click)="fermerMesBrevets()">
+    <div class="modal-box modal-large" (click)="$event.stopPropagation()">
+
+      <!-- Vue liste -->
+      <ng-container *ngIf="!brevetSelectionne">
+        <h3 class="modal-title">📁 Mes brevets archivés</h3>
+
+        <div *ngIf="archives.length === 0" class="archive-vide">
+          Aucun brevet archivé pour le moment.
+        </div>
+
+        <div class="archive-liste" *ngIf="archives.length > 0">
+          <div class="archive-item" *ngFor="let b of archives" (click)="voirBrevet(b)">
+            <div class="archive-info">
+              <span class="archive-emoji">{{ typeEmoji(b.type) }}</span>
+              <div class="archive-details">
+                <strong>{{ b.titre }}</strong>
+                <span class="archive-type">{{ typeLabel(b.type) }}</span>
+                <span class="archive-date">📅 {{ b.date }}</span>
+              </div>
+            </div>
+            <div class="archive-actions">
+              <span class="archive-voir">👁 Voir</span>
+              <button class="btn-supprimer"
+                      (click)="supprimerBrevet(b.id); $event.stopPropagation()"
+                      title="Supprimer">
+                🗑️
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn-annuler" (click)="fermerMesBrevets()">Fermer</button>
+        </div>
+      </ng-container>
+
+      <!-- Vue aperçu du brevet sélectionné -->
+      <ng-container *ngIf="brevetSelectionne">
+        <div class="apercu-header">
+          <button class="btn-retour" (click)="brevetSelectionne = null">← Retour</button>
+          <h3 class="modal-title" style="margin:0;">{{ brevetSelectionne.titre }}</h3>
+          <span class="archive-date">📅 {{ brevetSelectionne.date }}</span>
+        </div>
+
+        <div class="apercu-contenu" [innerHTML]="brevetSelectionne.contenu"></div>
+
+        <div class="modal-footer">
+          <button class="btn-annuler" (click)="brevetSelectionne = null">← Retour</button>
+          <button class="btn-confirmer" (click)="telechargerBrevetArchive(brevetSelectionne)">
+            ⬇️ Télécharger PDF
+          </button>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+
+  <!-- Panels -->
+  <div class="panels-row">
+
+    <!-- Panneau gauche -->
+    <div class="panel left">
+      <div class="header violet">✎ Formulaire de Saisie</div>
+      <div class="content">
+        <label>Nom de l'invention :</label>
+        <input [(ngModel)]="titreInvention" type="text">
+
+        <label>Identité de l'inventeur :</label>
+        <input [(ngModel)]="nomInventeur" type="text">
+
+        <label>Domaine Technique Médical :</label>
+        <input [(ngModel)]="domaineMedical" type="text">
+
+        <label>Problème (État de la technique) :</label>
+        <textarea [(ngModel)]="probleme"></textarea>
+
+        <label>Solution (Exposé de l'invention) :</label>
+        <textarea [(ngModel)]="solution"></textarea>
+
+        <label>Description détaillée :</label>
+        <textarea [(ngModel)]="description"></textarea>
+
+        <label>Tests / Preuves / Spécifications :</label>
+        <textarea [(ngModel)]="testsCliniques"></textarea>
+
+        <label>Revendications :</label>
+        <textarea [(ngModel)]="revendications"></textarea>
+
+        <label>Figure / Schéma :</label>
+        <input type="file" accept="image/*" (change)="onFileSelected($event)">
+
+        <button class="btn-verifier" (click)="onVerifier()">
+          Vérifier l'existence & Générer
+        </button>
+      </div>
+    </div>
+
+    <!-- Panneau droit -->
+    <div class="panel right">
+      <div class="header green">
+        👁 Aperçu en Temps Réel
+        <button class="btn-telecharger" (click)="onTelecharger()">Télécharger PDF</button>
+      </div>
+      <div class="content">
+
+        <!-- ══ TEMPLATE 1 : Brevet d'invention ══ -->
+        <ng-container *ngIf="templateActif === 'invention'">
+          <h2 style="text-align:center;">BREVET D'INVENTION</h2>
+          <p><b>1. TITRE DE L'INVENTION :</b> L'invention porte sur le dispositif intitulé : {{ titreInvention }}, conçu et développé par {{ nomInventeur }}.</p>
+          <p><b>2. DOMAINE TECHNIQUE MÉDICAL :</b> La présente invention s'inscrit dans le cadre du domaine suivant : {{ domaineMedical }}.</p>
+          <p><b>3. ÉTAT DE LA TECHNIQUE ET PROBLÈME RÉSOLU :</b> {{ probleme }}</p>
+          <p><b>4. EXPOSÉ DE L'INVENTION :</b> {{ solution }}</p>
+          <p><b>5. DESCRIPTION DÉTAILLÉE ET TESTS :</b> {{ description }}</p>
+          <p><i>Tests cliniques :</i> {{ testsCliniques }}</p>
+          <div *ngIf="imagePreview">
+            <h4>Schéma associé aux tests :</h4>
+            <img [src]="imagePreview" alt="Schéma de l'invention">
+          </div>
+          <p><b>6. PORTÉE DES REVENDICATIONS :</b> {{ revendications }}</p>
+        </ng-container>
+
+        <!-- ══ TEMPLATE 2 : Certificat d'utilité ══ -->
+        <ng-container *ngIf="templateActif === 'certificat'">
+          <h2 style="text-align:center;">CERTIFICAT D'UTILITÉ</h2>
+          <p><b>1. TITRE DE L'INVENTION (DISPOSITIF UTILISÉ) :</b> Le présent certificat porte sur l'amélioration technique intitulée : {{ titreInvention }}, conçue et développée par {{ nomInventeur }}.</p>
+          <p><b>2. DOMAINE TECHNIQUE MÉDICAL :</b> La présente demande s'inscrit dans le cadre du domaine d'application suivant : {{ domaineMedical }}.</p>
+          <p><b>3. ÉTAT DE LA TECHNIQUE ET CONFIGURATION MODIFIÉE :</b> {{ probleme }}</p>
+          <p><b>4. EXPOSÉ DE L'UTILITÉ ET AVANTAGES PRATIQUES :</b> {{ solution }}</p>
+          <p><b>5. DESCRIPTION DÉTAILLÉE DES COMPOSANTS ET DE LEUR AGENCEMENT :</b> {{ description }}</p>
+          <p><i>Spécifications et performances fonctionnelles :</i> {{ testsCliniques }}</p>
+          <div *ngIf="imagePreview">
+            <h4>Schéma associé :</h4>
+            <img [src]="imagePreview" alt="Schéma du certificat">
+          </div>
+          <p><b>6. PORTÉE DES REVENDICATIONS DE PROTECTION :</b> {{ revendications }}</p>
+        </ng-container>
+
+        <!-- ══ TEMPLATE 3 : Modèle industriel ══ -->
+        <ng-container *ngIf="templateActif === 'modele'">
+          <h2 style="text-align:center;">MODÈLE INDUSTRIEL</h2>
+          <p><b>1. TITRE DU MODÈLE (DESIGN INDUSTRIEL) :</b> Le présent dépôt porte sur la création ornementale et la forme extérieure de : {{ titreInvention }}, créé et modélisé par {{ nomInventeur }}.</p>
+          <p><b>2. DOMAINE D'APPLICATION ET ERGONOMIE MÉDICALE :</b> Ce modèle visuel est destiné au secteur et à l'équipement suivant : {{ domaineMedical }}.</p>
+          <p><b>3. ÉLÉMENTS VISUELS NOUVEAUX ET ORIGINALITÉ PAR RAPPORT À L'EXISTANT :</b> {{ probleme }}</p>
+          <p><b>4. EXPOSÉ DU DESIGN (LIGNES, CONTOURS ET CONFIGURATION TRIDIMENSIONNELLE) :</b> {{ solution }}</p>
+          <p><b>5. DESCRIPTION DÉTAILLÉE DES CONFIGURATIONS GÉOMÉTRIQUES ET TEXTURES :</b> {{ description }}</p>
+          <p><i>Aspects de la maquette ou du prototype physique :</i> {{ testsCliniques }}</p>
+          <div *ngIf="imagePreview">
+            <h4>Schéma du design :</h4>
+            <img [src]="imagePreview" alt="Schéma du modèle industriel">
+          </div>
+          <p><b>6. PORTÉE DE LA PROTECTION EXCLUSIVE DE LA FORME :</b> {{ revendications }}</p>
+        </ng-container>
+
+      </div>
+    </div>
+
+  </div>
+</div>

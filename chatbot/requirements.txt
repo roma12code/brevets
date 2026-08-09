@@ -1,0 +1,11 @@
+langchain
+langchain-community
+langchain-groq
+langchain-chroma
+sentence-transformers
+pypdf
+chromadb
+torch
+# Ajoute ces lignes à ton requirements.txt existant
+fastapi==0.115.0
+uvicorn[standard]==0.30.6

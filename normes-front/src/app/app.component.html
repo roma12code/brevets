@@ -1,0 +1,25 @@
+<div class="app-container">
+  <app-header
+    (toggleSidebar)="toggleSidebar()"
+    (togglePreview)="togglePreview()"
+    (newConversation)="onNewConversation()"
+  ></app-header>
+
+  <div class="main-layout">
+    <app-sidebar
+      [isOpen]="isSidebarOpen"
+      (closeSidebar)="closeSidebar()"
+      (conversationSelected)="onConversationSelected($event)"
+    ></app-sidebar>
+
+    <main class="main-content" [class.sidebar-open]="isSidebarOpen" [class.preview-open]="isPreviewOpen">
+      <app-chat-area></app-chat-area>
+    </main>
+
+    <app-document-preview
+      [isOpen]="isPreviewOpen"
+      (closePreview)="closePreview()"
+    ></app-document-preview>
+  </div>
+</div>
+

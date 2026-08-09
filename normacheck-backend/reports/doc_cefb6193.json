@@ -1,0 +1,62 @@
+{
+  "documentId": "doc_cefb6193",
+  "documentName": "BREVET.pdf",
+  "overallScore": 85,
+  "status": "partial",
+  "totalIssues": 3,
+  "criticalIssues": 0,
+  "summary": "Le document présente une cohérence globale entre les sections, mais quelques points nécessitent des améliorations pour atteindre une excellence en termes de consistance, de précision technique et de qualité rédactionnelle.",
+  "normesCovered": [
+    {
+      "normeCode": "CONSISTANCE",
+      "normeName": "Consistance Inter-Section",
+      "passed": true,
+      "score": 90,
+      "details": "Le document présente une bonne cohérence dans l'utilisation de la terminologie et des références, avec une numérotation claire et logique des sections. Cependant, il y a un manque de détails sur certaines sections, comme la section 6, qui nécessiterait plus d'information pour une analyse complète.",
+      "issues": [
+        {
+          "id": "issue_001",
+          "severity": "minor",
+          "normeRef": "CONSISTANCE",
+          "description": "Manque de détails dans la section 6 pour une analyse plus approfondie",
+          "page": 6,
+          "suggestion": "Ajouter plus de détails dans la section 6 pour améliorer la compréhension"
+        }
+      ]
+    },
+    {
+      "normeCode": "PRECISION",
+      "normeName": "Précision Technique",
+      "passed": true,
+      "score": 85,
+      "details": "Les données chiffrées et les références techniques sont généralement exactes, mais il manque des détails sur les normes ISO spécifiques utilisées et les dates de publication des études de référence.",
+      "issues": [
+        {
+          "id": "issue_002",
+          "severity": "major",
+          "normeRef": "PRECISION",
+          "description": "Manque d'informations sur les normes ISO utilisées",
+          "page": 3,
+          "suggestion": "Spécifier les normes ISO utilisées pour garantir la conformité"
+        }
+      ]
+    },
+    {
+      "normeCode": "REDACTION",
+      "normeName": "Qualité Rédactionnelle",
+      "passed": true,
+      "score": 80,
+      "details": "Le français utilisé est clair et grammaticalement correct, mais certaines phrases sont longues et complexes, nécessitant une attention particulière pour la compréhension.",
+      "issues": [
+        {
+          "id": "issue_003",
+          "severity": "minor",
+          "normeRef": "REDACTION",
+          "description": "Phrases longues et complexes qui pourraient être simplifiées",
+          "page": 2,
+          "suggestion": "Réécrire les phrases longues pour améliorer la clarté"
+        }
+      ]
+    }
+  ]
+}

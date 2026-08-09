@@ -1,0 +1,44 @@
+{
+  "documentId": "doc_7b948c20",
+  "documentName": "BREVET.pdf",
+  "overallScore": 85,
+  "status": "partial",
+  "totalIssues": 1,
+  "criticalIssues": 0,
+  "summary": "L'analyse du document a révélé une cohérence générale entre les sections, une exactitude technique raisonnable et une qualité de rédaction acceptable. Cependant, quelques problèmes mineurs ont été identifiés.",
+  "normesCovered": [
+    {
+      "normeCode": "CONSISTANCE",
+      "normeName": "Consistance Inter-Section",
+      "passed": true,
+      "score": 90,
+      "details": "La numérotation et les références entre les sections sont cohérentes. Les termes techniques utilisés sont également utilisés de manière constante tout au long du document.",
+      "issues": [
+        {
+          "id": "issue_001",
+          "severity": "minor",
+          "normeRef": "CONSISTANCE",
+          "description": "La page 1 utilise le terme 'CardioPatch-X1' alors que la page 2 utilise 'dispositif cutané adhésif'. Il serait préférable d'utiliser le même terme tout au long du document.",
+          "page": 1,
+          "suggestion": "Utiliser le terme 'CardioPatch-X1' de manière constante pour éviter toute confusion."
+        }
+      ]
+    },
+    {
+      "normeCode": "PRECISION",
+      "normeName": "Précision Technique",
+      "passed": true,
+      "score": 85,
+      "details": "Les données chiffrées et les références techniques sont généralement exactes. Cependant, il n'y a pas de référence aux normes ISO ou à des dates spécifiques pour les tests cliniques.",
+      "issues": []
+    },
+    {
+      "normeCode": "REDACTION",
+      "normeName": "Qualité Rédactionnelle",
+      "passed": true,
+      "score": 80,
+      "details": "La rédaction est claire et les phrases sont généralement courtes et faciles à comprendre. Cependant, il y a quelques phrases longues et complexes qui pourraient être améliorées pour une meilleure lisibilité.",
+      "issues": []
+    }
+  ]
+}

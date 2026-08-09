@@ -1,0 +1,44 @@
+{
+  "documentId": "doc_c6b71cf4",
+  "documentName": "BREVET.pdf",
+  "overallScore": 85,
+  "status": "partial",
+  "totalIssues": 1,
+  "criticalIssues": 0,
+  "summary": "L'analyse du document révèle une cohérence globale entre les sections, une exactitude technique satisfaisante et une qualité de rédaction généralement bonne, mais avec quelques suggestions d'amélioration pour améliorer la clarté et la précision.",
+  "normesCovered": [
+    {
+      "normeCode": "CONSISTANCE",
+      "normeName": "Consistance Inter-Section",
+      "passed": true,
+      "score": 92,
+      "details": "Le document montre une bonne cohérence dans la terminologie, les références et la numérotation entre les sections, avec une logique de présentation claire et bien organisée.",
+      "issues": [
+        {
+          "id": "issue_001",
+          "severity": "minor",
+          "normeRef": "CONSISTANCE",
+          "description": "Une petite incohérence dans la formulation de la section 4 où le terme 'arythmie' est utilisé sans déFINITION préalable dans le texte, ce qui pourrait causer quelques confusions chez les lecteurs non spécialisés.",
+          "page": 1,
+          "suggestion": "Ajouter une brève définition ou une référence à une définition de l'arythmie au début de la section pour améliorer la compréhension."
+        }
+      ]
+    },
+    {
+      "normeCode": "PRECISION",
+      "normeName": "Précision Technique",
+      "passed": true,
+      "score": 88,
+      "details": "Les données techniques présentées, comme les dimensions du dispositif et les résultats des essais cliniques, semblent précises et bien documentées. Cependant, il manque des références à des normes ou standards internationaux pour certains termes techniques, comme la mention de polymères biodégradables.",
+      "issues": []
+    },
+    {
+      "normeCode": "REDACTION",
+      "normeName": "Qualité Rédactionnelle",
+      "passed": true,
+      "score": 82,
+      "details": "Le document est rédigé de manière claire et concise, avec des phrases bien structurées. Cependant, certaines phrases sont longues et complexes, ce qui pourrait nécessiter une révision pour améliorer la fluidité de la lecture.",
+      "issues": []
+    }
+  ]
+}

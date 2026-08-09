@@ -1,0 +1,44 @@
+{
+  "documentId": "doc_aae39c06",
+  "documentName": "BREVET.pdf",
+  "overallScore": 85,
+  "status": "partial",
+  "totalIssues": 1,
+  "criticalIssues": 0,
+  "summary": "Le document analysé est globalement cohérent et bien rédigé, mais présente quelques détails techniques qui pourraient nécessiter des vérifications supplémentaires.",
+  "normesCovered": [
+    {
+      "normeCode": "CONSISTANCE",
+      "normeName": "Consistance Inter-Section",
+      "passed": true,
+      "score": 90,
+      "details": "La terminologie et les références sont cohérentes tout au long du document. La numérotation des sections est logique et facilite la navigation.",
+      "issues": [
+        {
+          "id": "issue_001",
+          "severity": "minor",
+          "normeRef": "CONSISTANCE",
+          "description": "La mention de « phase II » dans les tests cliniques pourrait nécessiter une clarification ou une référence à une norme spécifique pour plus de précision.",
+          "page": 2,
+          "suggestion": "Ajouter une note de bas de page ou une référence pour expliquer le contexte des essais de phase II."
+        }
+      ]
+    },
+    {
+      "normeCode": "PRECISION",
+      "normeName": "Précision Technique",
+      "passed": true,
+      "score": 85,
+      "details": "Les données chiffrées et les références techniques sont généralement précises. Cependant, l'absence de références aux normes ISO pour les biocapteurs et les micro-pompes pourrait être un point à améliorer.",
+      "issues": []
+    },
+    {
+      "normeCode": "REDACTION",
+      "normeName": "Qualité Rédactionnelle",
+      "passed": true,
+      "score": 80,
+      "details": "Le français est clair et les phrases sont généralement bien construites, mais certaines phrases sont un peu longues et pourraient être scindées pour améliorer la lisibilité.",
+      "issues": []
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "documentId": "doc_786a7f29",
+  "documentName": "BREVET.pdf",
+  "overallScore": 85,
+  "status": "partial",
+  "totalIssues": 3,
+  "criticalIssues": 0,
+  "summary": "Le document est globalement bien structuré et cohérent, mais présente quelques lacunes en termes de précision technique et de qualité rédactionnelle.",
+  "normesCovered": [
+    {
+      "normeCode": "CONSISTANCE",
+      "normeName": "Consistance Inter-Section",
+      "passed": true,
+      "score": 90,
+      "details": "Le document présente une bonne cohérence entre les sections, avec une numérotation et des références claires. Cependant, il y a une petite lacune dans la section 6, où les dimensions du dispositif sont mentionnées mais non explicitées dans le contexte de l'invention.",
+      "issues": [
+        {
+          "id": "issue_001",
+          "severity": "minor",
+          "normeRef": "CONSISTANCE",
+          "description": "Manque d'explicitation des dimensions du dispositif dans le contexte de l'invention.",
+          "page": 1,
+          "suggestion": "Ajouter une phrase pour expliquer l'importance des dimensions du dispositif dans le contexte de l'invention."
+        }
+      ]
+    },
+    {
+      "normeCode": "PRECISION",
+      "normeName": "Précision Technique",
+      "passed": true,
+      "score": 85,
+      "details": "Le document présente des informations techniques précises, notamment en ce qui concerne les matériaux utilisés et les tests cliniques. Cependant, il y a une petite lacune dans la section 5, où l'algorithme de détection n'est pas explicité.",
+      "issues": [
+        {
+          "id": "issue_002",
+          "severity": "minor",
+          "normeRef": "PRECISION",
+          "description": "Manque d'explicitation de l'algorithme de détection.",
+          "page": 1,
+          "suggestion": "Ajouter une phrase pour expliquer l'algorithme de détection utilisé."
+        }
+      ]
+    },
+    {
+      "normeCode": "REDACTION",
+      "normeName": "Qualité Rédactionnelle",
+      "passed": true,
+      "score": 80,
+      "details": "Le document est bien rédigé, avec des phrases claires et concises. Cependant, il y a quelques phrases trop longues et des termes techniques qui pourraient être expliqués de manière plus simple pour un lecteur non spécialisé.",
+      "issues": [
+        {
+          "id": "issue_003",
+          "severity": "minor",
+          "normeRef": "REDACTION",
+          "description": "Phrases trop longues et termes techniques non expliqués.",
+          "page": 1,
+          "suggestion": "Réorganiser les phrases pour les rendre plus courtes et ajouter des explications pour les termes techniques."
+        }
+      ]
+    }
+  ]
+}
