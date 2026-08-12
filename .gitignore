@@ -2,3 +2,7 @@
 *.env
 __pycache__/
 *.pyc
+**/chroma.sqlite3
+**/*_ChromaDB/
+**/db_vector/
+**/chroma_brevets/
